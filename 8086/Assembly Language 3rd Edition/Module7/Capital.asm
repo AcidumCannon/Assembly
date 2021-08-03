@@ -21,11 +21,11 @@ start:  mov ax, stacksg
         mov cx, 4 ; outer loop, for 4 rows
         sub bx, bx ; use (bx) to represent row address, initialize (bx)
 row:    push cx ; store outer loop counter
-        mov si, 3 ; use (si) to represent col address, initialize (si)
+        sub si, si ; use (si) to represent col address, initialize (si)
         mov cx, 4 ; inner loop, for 4 columns
-col:    mov al, [bx + si] ;| set the 5th (0 based) bit to 0 (rest are 1s) and apply AND bitwisely will set whatever a~z to A~Z correspondingly
+col:    mov al, [bx + si + 3] ;| set the 5th (0 based) bit to 0 (rest are 1s) and apply AND bitwisely will set whatever a~z to A~Z correspondingly
         and al, 11011111B ;| <- that is what we do here
-        mov [bx + si], al ;| set the 5th (0 based) bit to 1 (rest are 0s) and apply OR bitwisely will set whatever A~Z to a~z correspondingly
+        mov [bx + si + 3], al ;| set the 5th (0 based) bit to 1 (rest are 0s) and apply OR bitwisely will set whatever A~Z to a~z correspondingly
         inc si
         loop col
         add bx, 16
