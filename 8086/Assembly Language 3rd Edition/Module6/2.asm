@@ -1,4 +1,4 @@
-; lab5 question 2 assembly code, copied from the book
+; Lab5 question 2 assembly code, copied from the book
 assume cs:code, ds:data, ss:stack
 
 data segment
