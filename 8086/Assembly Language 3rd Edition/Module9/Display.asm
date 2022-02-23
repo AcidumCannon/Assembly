@@ -36,10 +36,10 @@ line:   sub di, cx ; di changes from 0 to 2
         mov cx, 16
 col:    ; copy character
         mov al, [0 + bx]
-        mov es:[bp + 40h + si], al ; starts from 33th column, low byte ascii
+        mov es:[bp + 40h + si], al ; starts from 32th column, low byte ascii
         ; set appearance
         mov al, [16 + di]
-        mov es:[bp + 41h + si], al ; starts from 33th column, high byte appearance
+        mov es:[bp + 41h + si], al ; starts from 32th column, high byte appearance
         inc bx
         add si, 2
         loop col
