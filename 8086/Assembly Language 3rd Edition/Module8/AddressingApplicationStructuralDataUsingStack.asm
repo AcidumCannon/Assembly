@@ -1,4 +1,4 @@
-assume cs:codesg
+assume cs:code, ds:data, es:table, ss:stack
 
 data segment
     ;0
@@ -21,7 +21,7 @@ stack segment
     db 16 dup (0)
 stack ends
 
-codesg segment
+code segment
 start:
     mov ax, data
     mov ds, ax
@@ -72,5 +72,5 @@ s1:
 
     mov ax, 4c00h
     int 21h
-codesg ends
+code ends
 end start
